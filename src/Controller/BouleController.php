@@ -36,6 +36,7 @@ class BouleController extends AbstractController
         return $this->renderForm('boule/new.html.twig', [
             'boule' => $boule,
             'form' => $form,
+            'boules' =>  $bouleRepository->findAll()
         ]);
     }
 
@@ -62,6 +63,7 @@ class BouleController extends AbstractController
         return $this->renderForm('boule/edit.html.twig', [
             'boule' => $boule,
             'form' => $form,
+            'boules' =>  $bouleRepository->findAll()
         ]);
     }
 
