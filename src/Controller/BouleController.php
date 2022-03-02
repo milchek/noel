@@ -40,10 +40,11 @@ class BouleController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_boule_show', methods: ['GET'])]
-    public function show(Boule $boule): Response
+    public function show(Boule $boule , BouleRepository $bouleRepository): Response
     {
         return $this->render('boule/show.html.twig', [
             'boule' => $boule,
+            'boules' =>  $bouleRepository->findAll(),
         ]);
     }
 
