@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boule index{% endblock %}
+
+{% block body %}
+    <h1>Boule index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Promotion</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for boule in boules %}
+            <tr>
+                <td>{{ boule.id }}</td>
+                <td>{{ boule.titre }}</td>
+                <td>{{ boule.description }}</td>
+                <td>{{ boule.prix ~'€'  }}</td>
+                <td>{{ boule.promotion }}</td>
+                <td> <img src="{{ boule.photo }}" alt="" width="50"></td>
+                <td>
+                    <a href="{{ path('app_boule_show', {'id': boule.id}) }}">show</a>
+                    <a href="{{ path('app_boule_edit', {'id': boule.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_boule_new') }}">Create new</a>
+{% endblock %}

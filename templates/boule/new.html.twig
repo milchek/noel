@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Boule{% endblock %}
+
+{% block body %}
+    <h1>Create new Boule</h1>
+
+    {{ include('boule/_form.html.twig') }}
+
+    <a href="{{ path('app_boule_index') }}">back to list</a>
+{% endblock %}

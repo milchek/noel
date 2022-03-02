@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boule{% endblock %}
+
+{% block body %}
+    <h1>Boule</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Titre</th>
+                <td>{{ boule.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ boule.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                {% if boule.promotion != null %}
+                <td>{{ boule.prix  - boule.prix * boule.promotion / 100 }}€ </td>
+                
+                 {% else %}
+                     <td>{{ boule.prix }}</td> 
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Promotion</th>
+                <td>{{ boule.promotion }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+               <td> <img class="rounded-circle" src="{{ boule.photo}}" alt="">
+               </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

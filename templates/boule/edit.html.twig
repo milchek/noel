@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Boule{% endblock %}
+
+{% block body %}
+    <h1>Edit Boule</h1>
+
+    {{ include('boule/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_boule_index') }}">back to list</a>
+
+    {{ include('boule/_delete_form.html.twig') }}
+{% endblock %}
